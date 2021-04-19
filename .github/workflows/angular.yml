@@ -1,6 +1,6 @@
 name: Deploy to Azure
-on:
-  workflow_dispatch:
+on: push
+
 env:
   AZURE_WEBAPP_NAME: github-actions-spa
   AZURE_WEBAPP_PACKAGE_PATH: './dist/angulargithubaction'
