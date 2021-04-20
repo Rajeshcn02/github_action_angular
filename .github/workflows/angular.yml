@@ -23,3 +23,15 @@ jobs:
     - run: npm publish
       env:
         NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Archive build
+      if: success()
+      uses: actions/upload-artifact@v1
+      with:
+          name: deploy_dist
+          path: dist
+    - name: Archive code coverage result
+      if: success()
+      uses: actions/upload-artifact@v1
+      with:
+       name: deploy_coverage
+       path: coverage
